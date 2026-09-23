@@ -1,4 +1,7 @@
 package org.palaasada.backend.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.palaasada.backend.model.Direccion;
 
-public interface DireccionRepository {
+import org.springframework.stereotype.Repository;
+public interface DireccionRepository extends JpaRepository<Direccion, Integer> {
 }
