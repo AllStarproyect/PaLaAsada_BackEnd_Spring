@@ -26,6 +26,16 @@ public class User {
     @Column(name = "activo", nullable = false)
     private Boolean activo = true;
 
+    //Constructor
+    public User(Integer id, String nombre, String correo, String telefono, String password, Boolean activo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.password = password;
+        this.activo = activo;
+    }
+
     public User() {
     }
 
