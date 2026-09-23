@@ -1,4 +1,7 @@
 package org.palaasada.backend.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.palaasada.backend.model.InformacionAdicional;
 
-public interface InformacionAdicionalRepository {
+import org.springframework.stereotype.Repository;
+public interface InformacionAdicionalRepository extends JpaRepository<InformacionAdicional, String> {
 }

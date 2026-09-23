@@ -1,4 +1,9 @@
 package org.palaasada.backend.repository;
 
-public interface DetallePedidoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.palaasada.backend.model.DetallePedido;
+
+import org.springframework.stereotype.Repository;
+
+public interface DetallePedidoRepository extends JpaRepository<DetallePedidoRepository, Integer> {
 }
