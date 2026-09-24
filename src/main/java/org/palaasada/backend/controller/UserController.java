@@ -1,49 +1,50 @@
 package org.palaasada.backend.controller;
 
 import org.palaasada.backend.model.User;
-import org.palaasada.backend.service.UserService; // O tu repositorio si no usas servicio aún
+import org.palaasada.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
-@CrossOrigin(origins = "*") // Permite peticiones desde el frontend
+@RequestMapping("/usuarios")
 public class UserController {
 
     @Autowired
-    private UserService userService; // O UserRepository directamente si aplican servicio más adelante
-
-    // ... aquí van los métodos del CRUD
+    private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<User>> findAll() {
+        return ResponseEntity.ok(userService.findAll());
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public ResponseEntity<User> findById(@PathVariable Integer id) {
+        return userService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
-}
 
-@GetMapping("/{id}")
-public User getUserById(@PathVariable Long id) {
-    return userService.getUserById(id);
-}
+    @PostMapping
+    public ResponseEntity<User> save(@RequestBody User user) {
+        return ResponseEntity.ok(userService.save(user));
+    }
 
-@PostMapping
-public User createUser(@RequestBody User user) {
-    return userService.createUser(user);
-}
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(
+            @PathVariable Integer id,
+            @RequestBody User user) {
 
-@PutMapping("/{id}")
-public User updateUser(@PathVariable Long id, @RequestBody User user) {
-    return userService.updateUser(id, user);
-}
+        return ResponseEntity.ok(userService.update(id, user));
+    }
 
-@DeleteMapping("/{id}")
-public void deleteUser(@PathVariable Long id) {
-    userService.deleteUser(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+
+        userService.delete(id);
+
+        return ResponseEntity.noContent().build();
+    }
 }

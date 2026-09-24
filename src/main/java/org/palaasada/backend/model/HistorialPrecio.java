@@ -1,6 +1,7 @@
 package org.palaasada.backend.model;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,16 +18,16 @@ public class HistorialPrecio {
     private Producto producto;
 
     @Column(name = "precio_anterior", precision = 10, scale = 2)
-    private Double precioAnterior;
+    private BigDecimal precioAnterior;
 
     @Column(name = "precio_nuevo", nullable = false, precision = 10, scale = 2)
-    private Double precioNuevo;
+    private BigDecimal precioNuevo;
 
     @Column(name = "fecha_cambio", nullable = false)
     private LocalDateTime fechaCambio = LocalDateTime.now();
 
-    //Constructor
-    public HistorialPrecio(Integer historialId, Producto producto, Double precioAnterior, Double precioNuevo, LocalDateTime fechaCambio) {
+    // Constructor
+    public HistorialPrecio(Integer historialId, Producto producto, BigDecimal precioAnterior, BigDecimal precioNuevo, LocalDateTime fechaCambio) {
         this.historialId = historialId;
         this.producto = producto;
         this.precioAnterior = precioAnterior;
@@ -54,19 +55,19 @@ public class HistorialPrecio {
         this.producto = producto;
     }
 
-    public Double getPrecioAnterior() {
+    public BigDecimal getPrecioAnterior() {
         return precioAnterior;
     }
 
-    public void setPrecioAnterior(Double precioAnterior) {
+    public void setPrecioAnterior(BigDecimal precioAnterior) {
         this.precioAnterior = precioAnterior;
     }
 
-    public Double getPrecioNuevo() {
+    public BigDecimal getPrecioNuevo() {
         return precioNuevo;
     }
 
-    public void setPrecioNuevo(Double precioNuevo) {
+    public void setPrecioNuevo(BigDecimal precioNuevo) {
         this.precioNuevo = precioNuevo;
     }
 
@@ -78,8 +79,7 @@ public class HistorialPrecio {
         this.fechaCambio = fechaCambio;
     }
 
-
-    //toString
+    // toString
     @Override
     public String toString() {
         return "HistorialPrecio{" +

@@ -80,15 +80,14 @@ public class DetallePedido {
     }
 
 
-    //toString
     @Override
     public String toString() {
         return "DetallePedido{" +
                 "id=" + id +
                 ", cantidad=" + cantidad +
                 ", precioUnitario=" + precioUnitario +
-                ", pedido=" + pedido +
-                ", producto=" + producto +
+                ", pedidoId=" + (pedido != null ? pedido.getId() : null) +
+                ", productoId=" + (producto != null ? producto.getId() : null) +
                 '}';
     }
 }

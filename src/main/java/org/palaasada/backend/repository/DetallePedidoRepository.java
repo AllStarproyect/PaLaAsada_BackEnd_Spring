@@ -6,5 +6,5 @@ import org.palaasada.backend.model.DetallePedido;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DetallePedidoRepository extends JpaRepository<DetallePedidoRepository, Integer> {
+public interface DetallePedidoRepository extends JpaRepository<DetallePedido, Integer> {
 }

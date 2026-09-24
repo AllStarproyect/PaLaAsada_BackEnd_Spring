@@ -1,6 +1,7 @@
 package org.palaasada.backend.model;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -19,7 +20,7 @@ public class CondicionComercial {
     private Integer tagId;
 
     @Column(name = "precio_promocional", precision = 10, scale = 2)
-    private Double precioPromocional;
+    private BigDecimal precioPromocional;
 
     @Column(name = "fecha_inicio")
     private LocalDate fechaInicio;
@@ -27,10 +28,8 @@ public class CondicionComercial {
     @Column(name = "fecha_fin")
     private LocalDate fechaFin;
 
-    //Constructor
-
-
-    public CondicionComercial(Integer condicionId, String productoId, Integer tagId, Double precioPromocional, LocalDate fechaInicio, LocalDate fechaFin) {
+    // Constructor
+    public CondicionComercial(Integer condicionId, String productoId, Integer tagId, BigDecimal precioPromocional, LocalDate fechaInicio, LocalDate fechaFin) {
         this.condicionId = condicionId;
         this.productoId = productoId;
         this.tagId = tagId;
@@ -67,11 +66,11 @@ public class CondicionComercial {
         this.tagId = tagId;
     }
 
-    public Double getPrecioPromocional() {
+    public BigDecimal getPrecioPromocional() {
         return precioPromocional;
     }
 
-    public void setPrecioPromocional(Double precioPromocional) {
+    public void setPrecioPromocional(BigDecimal precioPromocional) {
         this.precioPromocional = precioPromocional;
     }
 
@@ -91,8 +90,7 @@ public class CondicionComercial {
         this.fechaFin = fechaFin;
     }
 
-
-    //toString
+    // toString
     @Override
     public String toString() {
         return "CondicionComercial{" +

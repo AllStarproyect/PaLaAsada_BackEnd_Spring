@@ -1,6 +1,7 @@
 package org.palaasada.backend.model;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "precio")
@@ -10,8 +11,9 @@ public class Precio {
     @Column(name = "precio_id", length = 80)
     private String precioId;
 
+    // Se cambia a BigDecimal con precision y scale válidos
     @Column(name = "monto", nullable = false, precision = 10, scale = 2)
-    private Double monto;
+    private BigDecimal monto;
 
     @Column(name = "moneda", length = 3)
     private String moneda;
@@ -22,18 +24,17 @@ public class Precio {
     @Column(name = "nota", columnDefinition = "TEXT")
     private String nota;
 
-    //Constructor
+    // Constructor vacío exigido por JPA
+    public Precio() {
+    }
 
-
-    public Precio(String precioId, Double monto, String moneda, String texto, String nota) {
+    // Constructor completo
+    public Precio(String precioId, BigDecimal monto, String moneda, String texto, String nota) {
         this.precioId = precioId;
         this.monto = monto;
         this.moneda = moneda;
         this.texto = texto;
         this.nota = nota;
-    }
-
-    public Precio() {
     }
 
     // Getters y Setters
@@ -46,11 +47,11 @@ public class Precio {
         this.precioId = precioId;
     }
 
-    public Double getMonto() {
+    public BigDecimal getMonto() {
         return monto;
     }
 
-    public void setMonto(Double monto) {
+    public void setMonto(BigDecimal monto) {
         this.monto = monto;
     }
 
@@ -78,8 +79,7 @@ public class Precio {
         this.nota = nota;
     }
 
-
-    //toString
+    // toString
     @Override
     public String toString() {
         return "Precio{" +
