@@ -11,6 +11,7 @@ import java.util.Optional;
 @Service
 public class InventarioService {
 
+
     @Autowired
     private InventarioRepository inventarioRepository;
 

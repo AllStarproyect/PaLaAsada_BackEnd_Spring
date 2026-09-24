@@ -31,7 +31,9 @@ public class InventarioController {
     public ResponseEntity<Inventario> save(
             @RequestBody Inventario inventario) {
 
-        return ResponseEntity.ok(inventarioService.save(inventario));
+        return ResponseEntity.ok(
+                inventarioService.save(inventario)
+        );
     }
 
     @PutMapping("/{id}")
@@ -51,4 +53,5 @@ public class InventarioController {
 
         return ResponseEntity.noContent().build();
     }
+
 }
