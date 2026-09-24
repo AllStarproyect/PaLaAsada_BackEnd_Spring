@@ -22,8 +22,72 @@ public class Precio {
     @Column(name = "nota", columnDefinition = "TEXT")
     private String nota;
 
+    //Constructor
+
+
+    public Precio(String precioId, Double monto, String moneda, String texto, String nota) {
+        this.precioId = precioId;
+        this.monto = monto;
+        this.moneda = moneda;
+        this.texto = texto;
+        this.nota = nota;
+    }
+
     public Precio() {
     }
 
     // Getters y Setters
+
+    public String getPrecioId() {
+        return precioId;
+    }
+
+    public void setPrecioId(String precioId) {
+        this.precioId = precioId;
+    }
+
+    public Double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(Double monto) {
+        this.monto = monto;
+    }
+
+    public String getMoneda() {
+        return moneda;
+    }
+
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public String getNota() {
+        return nota;
+    }
+
+    public void setNota(String nota) {
+        this.nota = nota;
+    }
+
+
+    //toString
+    @Override
+    public String toString() {
+        return "Precio{" +
+                "precioId='" + precioId + '\'' +
+                ", monto=" + monto +
+                ", moneda='" + moneda + '\'' +
+                ", texto='" + texto + '\'' +
+                ", nota='" + nota + '\'' +
+                '}';
+    }
 }

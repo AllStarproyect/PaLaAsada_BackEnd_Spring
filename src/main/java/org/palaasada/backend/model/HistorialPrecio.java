@@ -25,8 +25,69 @@ public class HistorialPrecio {
     @Column(name = "fecha_cambio", nullable = false)
     private LocalDateTime fechaCambio = LocalDateTime.now();
 
+    //Constructor
+    public HistorialPrecio(Integer historialId, Producto producto, Double precioAnterior, Double precioNuevo, LocalDateTime fechaCambio) {
+        this.historialId = historialId;
+        this.producto = producto;
+        this.precioAnterior = precioAnterior;
+        this.precioNuevo = precioNuevo;
+        this.fechaCambio = fechaCambio;
+    }
+
     public HistorialPrecio() {
     }
 
     // Getters y Setters
+    public Integer getHistorialId() {
+        return historialId;
+    }
+
+    public void setHistorialId(Integer historialId) {
+        this.historialId = historialId;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public Double getPrecioAnterior() {
+        return precioAnterior;
+    }
+
+    public void setPrecioAnterior(Double precioAnterior) {
+        this.precioAnterior = precioAnterior;
+    }
+
+    public Double getPrecioNuevo() {
+        return precioNuevo;
+    }
+
+    public void setPrecioNuevo(Double precioNuevo) {
+        this.precioNuevo = precioNuevo;
+    }
+
+    public LocalDateTime getFechaCambio() {
+        return fechaCambio;
+    }
+
+    public void setFechaCambio(LocalDateTime fechaCambio) {
+        this.fechaCambio = fechaCambio;
+    }
+
+
+    //toString
+    @Override
+    public String toString() {
+        return "HistorialPrecio{" +
+                "historialId=" + historialId +
+                ", producto=" + producto +
+                ", precioAnterior=" + precioAnterior +
+                ", precioNuevo=" + precioNuevo +
+                ", fechaCambio=" + fechaCambio +
+                '}';
+    }
 }
