@@ -26,8 +26,69 @@ public class DetallePedido {
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
+    //Constructor
+    public DetallePedido(Integer id, Integer cantidad, BigDecimal precioUnitario, Pedido pedido, Producto producto) {
+        this.id = id;
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
+        this.pedido = pedido;
+        this.producto = producto;
+    }
+
     public DetallePedido() {
     }
 
     // Getters y Setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public BigDecimal getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(BigDecimal precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+
+    //toString
+    @Override
+    public String toString() {
+        return "DetallePedido{" +
+                "id=" + id +
+                ", cantidad=" + cantidad +
+                ", precioUnitario=" + precioUnitario +
+                ", pedido=" + pedido +
+                ", producto=" + producto +
+                '}';
+    }
 }

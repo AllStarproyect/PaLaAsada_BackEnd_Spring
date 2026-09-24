@@ -42,8 +42,120 @@ public class Producto {
     @JoinColumn(name = "categoria_principal_id", nullable = false)
     private Categoria categoriaPrincipal;
 
+    //Constructor
+    public Producto(String id, String sku, String nombre, Boolean tieneVariantes, String descripcion, Precio precio, Inventario inventario, Imagen imagen, InformacionAdicional informacionAdicional, Categoria categoriaPrincipal) {
+        this.id = id;
+        this.sku = sku;
+        this.nombre = nombre;
+        this.tieneVariantes = tieneVariantes;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.inventario = inventario;
+        this.imagen = imagen;
+        this.informacionAdicional = informacionAdicional;
+        this.categoriaPrincipal = categoriaPrincipal;
+    }
+
     public Producto() {
     }
 
     // Getters y Setters
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Boolean getTieneVariantes() {
+        return tieneVariantes;
+    }
+
+    public void setTieneVariantes(Boolean tieneVariantes) {
+        this.tieneVariantes = tieneVariantes;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Precio getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Precio precio) {
+        this.precio = precio;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public Imagen getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Imagen imagen) {
+        this.imagen = imagen;
+    }
+
+    public InformacionAdicional getInformacionAdicional() {
+        return informacionAdicional;
+    }
+
+    public void setInformacionAdicional(InformacionAdicional informacionAdicional) {
+        this.informacionAdicional = informacionAdicional;
+    }
+
+    public Categoria getCategoriaPrincipal() {
+        return categoriaPrincipal;
+    }
+
+    public void setCategoriaPrincipal(Categoria categoriaPrincipal) {
+        this.categoriaPrincipal = categoriaPrincipal;
+    }
+
+
+    //toString
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id='" + id + '\'' +
+                ", sku='" + sku + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", tieneVariantes=" + tieneVariantes +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", inventario=" + inventario +
+                ", imagen=" + imagen +
+                ", informacionAdicional=" + informacionAdicional +
+                ", categoriaPrincipal=" + categoriaPrincipal +
+                '}';
+    }
 }

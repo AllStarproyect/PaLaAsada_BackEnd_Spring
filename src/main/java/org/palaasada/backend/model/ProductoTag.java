@@ -27,11 +27,19 @@ public class ProductoTag {
     @Column(name = "fecha_expiracion")
     private LocalDateTime fechaExpiracion;
 
+    //Constructor
+    public ProductoTag(ProductoTagId id, Producto producto, Tag tag, LocalDateTime fechaAsignacion, LocalDateTime fechaExpiracion) {
+        this.id = id;
+        this.producto = producto;
+        this.tag = tag;
+        this.fechaAsignacion = fechaAsignacion;
+        this.fechaExpiracion = fechaExpiracion;
+    }
 
     public ProductoTag() {
     }
 
-
+    //Getter y Setter
     public ProductoTagId getId() {
         return id;
     }
@@ -70,5 +78,17 @@ public class ProductoTag {
 
     public void setFechaExpiracion(LocalDateTime fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "ProductoTag{" +
+                "id=" + id +
+                ", producto=" + producto +
+                ", tag=" + tag +
+                ", fechaAsignacion=" + fechaAsignacion +
+                ", fechaExpiracion=" + fechaExpiracion +
+                '}';
     }
 }

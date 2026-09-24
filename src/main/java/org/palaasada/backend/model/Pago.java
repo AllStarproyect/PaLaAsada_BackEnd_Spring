@@ -33,8 +33,89 @@ public class Pago {
     @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
 
+    //Constructor
+    public Pago(Integer id, String metodoPago, EstadoPago estadoPago, BigDecimal monto, LocalDateTime fechaPago, String referenciaTransaccion, Pedido pedido) {
+        this.id = id;
+        this.metodoPago = metodoPago;
+        this.estadoPago = estadoPago;
+        this.monto = monto;
+        this.fechaPago = fechaPago;
+        this.referenciaTransaccion = referenciaTransaccion;
+        this.pedido = pedido;
+    }
+
     public Pago() {
     }
 
     // Getters y Setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMetodoPago() {
+        return metodoPago;
+    }
+
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
+    }
+
+    public EstadoPago getEstadoPago() {
+        return estadoPago;
+    }
+
+    public void setEstadoPago(EstadoPago estadoPago) {
+        this.estadoPago = estadoPago;
+    }
+
+    public BigDecimal getMonto() {
+        return monto;
+    }
+
+    public void setMonto(BigDecimal monto) {
+        this.monto = monto;
+    }
+
+    public LocalDateTime getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(LocalDateTime fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public String getReferenciaTransaccion() {
+        return referenciaTransaccion;
+    }
+
+    public void setReferenciaTransaccion(String referenciaTransaccion) {
+        this.referenciaTransaccion = referenciaTransaccion;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+
+    //toString
+    @Override
+    public String toString() {
+        return "Pago{" +
+                "id=" + id +
+                ", metodoPago='" + metodoPago + '\'' +
+                ", estadoPago=" + estadoPago +
+                ", monto=" + monto +
+                ", fechaPago=" + fechaPago +
+                ", referenciaTransaccion='" + referenciaTransaccion + '\'' +
+                ", pedido=" + pedido +
+                '}';
+    }
 }
