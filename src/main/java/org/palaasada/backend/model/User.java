@@ -26,20 +26,29 @@ public class User {
     @Column(name = "activo", nullable = false)
     private Boolean activo = true;
 
-    //Constructor
-    public User(Integer id, String nombre, String correo, String telefono, String password, Boolean activo) {
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
+
+    // Constructor vacío
+    public User() {
+    }
+
+    // Constructor completo
+    public User(Integer id, String nombre, String correo, String telefono,
+                String password, Boolean activo, Rol rol) {
+
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
         this.password = password;
         this.activo = activo;
-    }
-
-    public User() {
+        this.rol = rol;
     }
 
     // Getters y Setters
+
     public Integer getId() {
         return id;
     }
@@ -88,7 +97,14 @@ public class User {
         this.activo = activo;
     }
 
-    //toSting
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -96,8 +112,8 @@ public class User {
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", password='" + password + '\'' +
                 ", activo=" + activo +
+                ", rol=" + rol +
                 '}';
     }
 }
