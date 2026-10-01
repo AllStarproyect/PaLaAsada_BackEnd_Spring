@@ -2,6 +2,8 @@ package org.palaasada.backend.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "producto")
 public class Producto {
@@ -41,6 +43,14 @@ public class Producto {
     @ManyToOne(optional = false)
     @JoinColumn(name = "categoria_principal_id", nullable = false)
     private Categoria categoriaPrincipal;
+
+    // Nombres de categorias (tabla productocategoria) y tags (tabla producto_tag).
+    // No son columnas: ProductoService los llena al leer y los guarda al crear/editar.
+    @Transient
+    private List<String> categorias;
+
+    @Transient
+    private List<String> tags;
 
     //Constructor
     public Producto(String id, String sku, String nombre, Boolean tieneVariantes, String descripcion, Precio precio, Inventario inventario, Imagen imagen, InformacionAdicional informacionAdicional, Categoria categoriaPrincipal) {
@@ -139,6 +149,22 @@ public class Producto {
 
     public void setCategoriaPrincipal(Categoria categoriaPrincipal) {
         this.categoriaPrincipal = categoriaPrincipal;
+    }
+
+    public List<String> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<String> categorias) {
+        this.categorias = categorias;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 
 

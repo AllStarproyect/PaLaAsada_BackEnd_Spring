@@ -16,7 +16,8 @@ public class Imagen {
     @Column(name = "remota", columnDefinition = "TEXT")
     private String remota;
 
-    @Column(name = "local", columnDefinition = "TEXT")
+    // MEDIUMTEXT (16 MB): aqui se guardan imagenes como data URL desde /admin
+    @Column(name = "local", columnDefinition = "MEDIUMTEXT")
     private String local;
 
     public Imagen() {

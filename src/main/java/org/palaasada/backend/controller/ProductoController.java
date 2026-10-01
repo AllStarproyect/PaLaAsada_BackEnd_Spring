@@ -50,9 +50,16 @@ public class ProductoController {
 
     // Eliminar producto
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
+    public ResponseEntity<String> delete(@PathVariable String id) {
 
-        productoService.delete(id);
+        try {
+            if (!productoService.delete(id)) {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (IllegalStateException e) {
+            // Tiene pedidos: 409 con el motivo para mostrarlo en /admin
+            return ResponseEntity.status(409).body(e.getMessage());
+        }
 
         return ResponseEntity.noContent().build();
     }

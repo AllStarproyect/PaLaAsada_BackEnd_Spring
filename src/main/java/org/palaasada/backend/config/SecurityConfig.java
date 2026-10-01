@@ -47,6 +47,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,
                                 "/productos/**", "/categorias/**", "/tags/**").permitAll()
 
+                        // Pagina de error de Spring: sin esto cualquier excepcion
+                        // (p. ej. un INSERT rechazado por MySQL) se reporta como 403
+                        .requestMatchers("/error").permitAll()
+
                         // Preflight de CORS
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
