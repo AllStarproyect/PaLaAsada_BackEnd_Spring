@@ -22,19 +22,19 @@ public class Producto {
     @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "precio_id")
     private Precio precio;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "inventario_id")
     private Inventario inventario;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "imagen_id")
     private Imagen imagen;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "info_adicional_id")
     private InformacionAdicional informacionAdicional;
 
