@@ -47,6 +47,14 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,
                                 "/productos/**", "/categorias/**", "/tags/**").permitAll()
 
+                        // Sitio publico (archivos estaticos servidos desde /static)
+                        // Nota: /admin/** solo sirve el HTML/JS del panel; la
+                        // proteccion real esta en los endpoints POST/PUT/DELETE
+                        // de /productos, /categorias, etc. (abajo, hasRole ADMIN)
+                        .requestMatchers(HttpMethod.GET,
+                                "/", "/index.html", "/assets/**", "/css/**", "/js/**",
+                                "/pages/**", "/data/**", "/docs/**", "/admin/**").permitAll()
+
                         // Pagina de error de Spring: sin esto cualquier excepcion
                         // (p. ej. un INSERT rechazado por MySQL) se reporta como 403
                         .requestMatchers("/error").permitAll()

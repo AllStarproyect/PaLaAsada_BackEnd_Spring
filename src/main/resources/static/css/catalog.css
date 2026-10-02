@@ -1,0 +1,129 @@
+/* =====================================================
+   CATALOG.CSS
+   Estilos de la sección de catálogo (Más Pedidos / Carne de res)
+   - Flexbox puro, sin clases de Bootstrap.
+   - Usa la paleta y tipografías globales (global.css).
+   - Selectores prefijados con "main" para no chocar con
+     los estilos del navbar / footer que viven en otros .css.
+   - Cards con el mismo estilo visual (glass, imagen con badge
+     flotante, contenido superpuesto) que las product-card de home.css,
+     adaptado al grid y a las variables de este proyecto.
+   ===================================================== */
+
+main .catalog-section {
+    padding: 48px 0;
+}
+
+main .catalog-section--dark {
+    background-color: var(--color-charcoal);
+}
+
+main .catalog-section--light {
+    background-color: var(--color-cream);
+}
+
+main .catalog-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header de cada sección */
+main .catalog-section .catalog-section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+main .catalog-section .catalog-section__title {
+    font-family: var(--font-secondary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 0;
+}
+
+main .catalog-section .catalog-section__title--dark {
+    color: var(--color-charcoal);
+}
+
+main .catalog-section .catalog-section__link {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-mustard);
+    text-decoration: none;
+}
+
+main .catalog-section .catalog-section__link:hover {
+    text-decoration: underline;
+}
+
+main .catalog-section .product-grid__empty {
+    max-width: 60rem;
+    margin: 0 auto 3rem;
+    padding: 2.4rem;
+    border: .1rem dashed rgba(255, 255, 255, .3);
+    border-radius: 1.2rem;
+    color: #fff;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+/* Grid de productos con flexbox */
+main .catalog-section .product-grid {
+    /*display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;*/
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    gap: 20px; 
+    max-width: 120rem; 
+    margin: 0 auto;
+    
+}
+
+main .catalog-section .product-grid .product-card {
+    width: 100%;
+    min-width: 0;
+    flex: initial;
+}
+
+
+
+/* =====================================================
+   RESPONSIVIDAD
+   ===================================================== */
+
+/* Tablets: 2 columnas */
+@media (max-width: 991px) {
+    main .catalog-section .product-grid /*.product-card*/ {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        /*flex: 1 1 calc(50% - 20px);*/
+    }
+}
+
+/* Móviles: 1 columna */
+@media (max-width: 575px) {
+    main .catalog-section {
+        padding: 32px 0;
+    }
+
+    main .catalog-section .catalog-section__header {
+        margin-bottom: 16px;
+    }
+
+    main .catalog-section .catalog-section__title {
+        font-size: 1.4rem;
+    }
+
+    main .catalog-section .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+
+}
